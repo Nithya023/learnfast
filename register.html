@@ -3,169 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LearnFast - Register for a Course</title>
-    <!-- Tailwind CSS CDN for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Analytics 4 (GA4) Global Site Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        // Replace 'G-XXXXXXX' with your actual GA4 Measurement ID
-        gtag('config', 'G-XXXXXXX');
-
-        // Track page view for this specific page
-        gtag('event', 'page_view', {
-            page_title: 'Register for a Course',
-            page_location: window.location.href,
-            page_path: '/register',
-            send_to: 'G-XXXXXXX'
-        });
-
-        // Define course data again, as it's needed for the select dropdown on this page
-        const courses = [
-            { id: 'web-dev', name: 'Web Development Fundamentals', duration: '8 Weeks', price: 299.00, description: 'Learn the basics of HTML, CSS, and JavaScript to build your first websites. This course is perfect for beginners.' },
-            { id: 'python-data', name: 'Python for Data Science', duration: '12 Weeks', price: 449.00, description: 'Master Python programming and its applications in data analysis, visualization, and machine learning.' },
-            { id: 'digital-marketing', name: 'Digital Marketing Essentials', duration: '6 Weeks', price: 199.00, description: 'Understand the core concepts of digital marketing, including SEO, social media, and content strategy.' },
-            { id: 'graphic-design', name: 'Graphic Design with Adobe Suite', duration: '10 Weeks', price: 379.00, description: 'Learn to create stunning visuals using Photoshop, Illustrator, and InDesign. Develop your creative skills for branding, web, and print.' },
-            { id: 'cybersecurity', name: 'Introduction to Cybersecurity', duration: '9 Weeks', price: 329.00, description: 'Understand fundamental cybersecurity principles, threat detection, and protective measures to safeguard digital information and systems.' }
-        ];
-
-        document.addEventListener('DOMContentLoaded', () => {
-            const courseSelect = document.getElementById('course-select');
-            const urlParams = new URLSearchParams(window.location.search);
-            const preSelectedCourseId = urlParams.get('course_id');
-
-            // Populate course select dropdown
-            courses.forEach(course => {
-                const option = document.createElement('option');
-                option.value = course.id;
-                option.textContent = `${course.name} ($${course.price.toFixed(2)})`;
-                courseSelect.appendChild(option);
-            });
-
-            // Pre-select course if ID is passed in URL
-            if (preSelectedCourseId && courseSelect.querySelector(`option[value="${preSelectedCourseId}"]`)) {
-                courseSelect.value = preSelectedCourseId;
-                gtag('event', 'course_preselected', {
-                    course_id: preSelectedCourseId,
-                    event_category: 'engagement',
-                    event_label: 'Course pre-selected from URL'
-                });
-            }
-
-            const registrationForm = document.getElementById('registration-form');
-            const formMessage = document.getElementById('form-message');
-
-            registrationForm.addEventListener('submit', function(event) {
-                event.preventDefault(); // Prevent default form submission to handle GA4 tracking
-
-                const fullName = document.getElementById('full-name').value;
-                const email = document.getElementById('email').value;
-                const selectedCourseId = document.getElementById('course-select').value;
-                const phone = document.getElementById('phone').value;
-
-                if (!fullName || !email || !selectedCourseId) {
-                    formMessage.classList.remove('hidden', 'bg-green-100', 'text-green-800');
-                    formMessage.classList.add('bg-red-100', 'text-red-800');
-                    formMessage.textContent = 'Please fill in all required fields (Full Name, Email, and Course).';
-                    gtag('event', 'registration_incomplete', {
-                        error_message: 'Missing required fields',
-                        form_fields_attempted: {
-                            fullName: fullName ? 'filled' : 'empty',
-                            email: email ? 'filled' : 'empty',
-                            courseId: selectedCourseId ? 'selected' : 'empty'
-                        },
-                        send_to: 'G-XXXXXXX'
-                    });
-                    return;
-                }
-
-                const selectedCourse = courses.find(c => c.id === selectedCourseId);
-
-                // Trigger GA4 custom event for successful registration (Conversion Event)
-                gtag('event', 'course_registration_successful', {
-                    course_name: selectedCourse.name,
-                    course_id: selectedCourse.id,
-                    value: selectedCourse.price,
-                    currency: 'USD',
-                    registration_method: 'form_submission',
-                    user_email: email, // Note: Be careful with PII in GA without proper hashing/anonymization
-                    send_to: 'G-XXXXXXX'
-                });
-
-                // Manually navigate to the thank you page after GA4 event fires
-                // Pass form data as query parameters to display on thankyou.html
-                const queryString = new URLSearchParams({
-                    fullName: fullName,
-                    email: email,
-                    courseName: selectedCourse.name
-                }).toString();
-                window.location.href = `thankyou.html?${queryString}`;
-            });
-        });
-    </script>
+    <title>Register for a Course - LearnFast</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        header { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
+        nav { display: flex; justify-content: center; background: #555; padding: 0.5rem 0; }
+        nav a { color: #fff; padding: 0.5rem 1rem; text-decoration: none; }
+        nav a:hover { background: #777; }
+        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px 0; }
+        form { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        form div { margin-bottom: 15px; }
+        form label { display: block; margin-bottom: 5px; font-weight: bold; }
+        form input[type="text"],
+        form input[type="email"],
+        form select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
+        form button { background: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        form button:hover { background: #0056b3; }
+        footer { text-align: center; padding: 20px; background: #333; color: #fff; }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-inter">
-    <header class="bg-blue-600 text-white p-4 shadow-md">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">LearnFast</h1>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">Home</a></li>
-                    <li><a href="course.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">Courses</a></li>
-                    <li><a href="register.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">Register</a></li>
-                    <li><a href="about.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">About</a></li>
-                </ul>
-            </nav>
-        </div>
+<body>
+    <header>
+        <h1>Register for a Course</h1>
+        <p>Fill out the form below to enroll.</p>
     </header>
-
-    <main class="py-10">
-        <!-- Registration Section Content -->
-        <section class="container mx-auto px-4 bg-white p-8 rounded-lg shadow-lg">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Register for a Course</h2>
-            <form id="registration-form" class="max-w-xl mx-auto">
-                <div class="mb-5">
-                    <label for="full-name" class="block text-gray-700 text-sm font-semibold mb-2">Full Name</label>
-                    <input type="text" id="full-name" name="fullName" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="John Doe" required>
-                </div>
-                <div class="mb-5">
-                    <label for="email" class="block text-gray-700 text-sm font-semibold mb-2">Email Address</label>
-                    <input type="email" id="email" name="email" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="john.doe@example.com" required>
-                </div>
-                <div class="mb-5">
-                    <label for="course-select" class="block text-gray-700 text-sm font-semibold mb-2">Select Course</label>
-                    <select id="course-select" name="course" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" required>
-                        <option value="">-- Please select a course --</option>
-                        <!-- Options will be dynamically added by JavaScript -->
-                    </select>
-                </div>
-                <div class="mb-5">
-                    <label for="phone" class="block text-gray-700 text-sm font-semibold mb-2">Phone Number (Optional)</label>
-                    <input type="tel" id="phone" name="phone" class="shadow-sm appearance-none border rounded-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="+1 (555) 123-4567">
-                </div>
-                <div class="flex justify-center">
-                    <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300">
-                        Register Now
-                    </button>
-                </div>
-            </form>
-            <div id="form-message" class="mt-6 p-4 rounded-lg text-center hidden"></div>
-        </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white p-6 text-center shadow-inner mt-10">
-        <div class="container mx-auto">
-            <p>&copy; 2025 LearnFast. All rights reserved.</p>
-        </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="register.html">Register</a>
+        <a href="about.html">About Us</a>
+    </nav>
+    <div class="container">
+        <form action="confirmation.html" method="GET">
+            <div>
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            <div>
+                <label for="email">Email Address:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="course">Select Course:</label>
+                <select id="course" name="course" required>
+                    <option value="">--Please choose an option--</option>
+                    <option value="web-dev">Web Development Fundamentals</option>
+                    <option value="python-data">Python for Data Science</option>
+                    <option value="digital-marketing">Digital Marketing Essentials</option>
+                </select>
+            </div>
+            <div>
+                <label for="phone">Phone Number (Optional):</label>
+                <input type="text" id="phone" name="phone">
+            </div>
+            <div>
+                <button type="submit">Register Now</button>
+            </div>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2025 LearnFast. All rights reserved.</p>
     </footer>
 </body>
 </html>
