@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5CDCEQRF0"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5CDCEQRF0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -12,29 +11,13 @@
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register for a Course - LearnFast</title>
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        header { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
-        nav { display: flex; justify-content: center; background: #555; padding: 0.5rem 0; }
-        nav a { color: #fff; padding: 0.5rem 1rem; text-decoration: none; }
-        nav a:hover { background: #777; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px 0; }
-        form { background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        form div { margin-bottom: 15px; }
-        form label { display: block; margin-bottom: 5px; font-weight: bold; }
-        form input[type="text"],
-        form input[type="email"],
-        form select { width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 4px; box-sizing: border-box; }
-        form button { background: #007bff; color: #fff; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-        form button:hover { background: #0056b3; }
-        footer { text-align: center; padding: 20px; background: #333; color: #fff; }
-    </style>
+    <title>Enroll Now - LearnFast</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Register for a Course</h1>
-        <p>Fill out the form below to enroll.</p>
+        <h1>Enroll in Your Chosen Course</h1>
+        <p>Take the first step towards your learning journey!</p>
     </header>
     <nav>
         <a href="index.html">Home</a>
@@ -43,30 +26,34 @@
         <a href="about.html">About Us</a>
     </nav>
     <div class="container">
-        <form action="thankyou.html" method="GET">
+        <form action="thankyou.html" method="GET" class="registration-form">
+            <h2>Registration Details</h2>
+            <p class="form-description">Please fill in your details and select the course you wish to enroll in.</p>
             <div>
                 <label for="fullName">Full Name:</label>
-                <input type="text" id="fullName" name="fullName" required>
+                <input type="text" id="fullName" name="fullName" required placeholder="Your full name">
             </div>
             <div>
                 <label for="email">Email Address:</label>
-                <input type="email" id="email" name="email" required>
+                <input type="email" id="email" name="email" required placeholder="your.email@example.com">
             </div>
             <div>
                 <label for="course">Select Course:</label>
                 <select id="course" name="course" required>
-                    <option value="">--Please choose an option--</option>
+                    <option value="">-- Choose a course --</option>
                     <option value="web-dev">Web Development Fundamentals</option>
                     <option value="python-data">Python for Data Science</option>
                     <option value="digital-marketing">Digital Marketing Essentials</option>
+                    <option value="graphic-design">Graphic Design with Adobe Suite</option>
+                    <option value="cybersecurity">Introduction to Cybersecurity</option>
                 </select>
             </div>
             <div>
                 <label for="phone">Phone Number (Optional):</label>
-                <input type="text" id="phone" name="phone">
+                <input type="text" id="phone" name="phone" placeholder="+91 12345 67890">
             </div>
             <div>
-                <button type="submit">Register Now</button>
+                <button type="submit" class="button">Complete Registration</button>
             </div>
         </form>
     </div>
