@@ -4,86 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LearnFast - Unlock Your Potential</title>
-    <!-- Tailwind CSS CDN for modern styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Link to external stylesheet -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Google Analytics 4 (GA4) Global Site Tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        // Replace 'G-XXXXXXX' with your actual GA4 Measurement ID
-        gtag('config', 'G-XXXXXXX');
-    </script>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
+        header { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
+        nav { display: flex; justify-content: center; background: #555; padding: 0.5rem 0; }
+        nav a { color: #fff; padding: 0.5rem 1rem; text-decoration: none; }
+        nav a:hover { background: #777; }
+        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px 0; }
+        .hero { text-align: center; padding: 50px 0; background: #eee; }
+        footer { text-align: center; padding: 20px; background: #333; color: #fff; }
+    </style>
 </head>
-<body class="bg-gray-100 text-gray-800 font-inter">
-    <header class="bg-blue-600 text-white p-4 shadow-md">
-        <div class="container mx-auto px-4 flex justify-between items-center">
-            <h1 class="text-3xl font-bold">LearnFast</h1>
-            <nav>
-                <ul class="flex space-x-6">
-                    <li><a href="index.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">Home</a></li>
-                    <li><a href="course.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">Courses</a></li>
-                    <li><a href="register.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">Register</a></li>
-                    <li><a href="about.html" class="nav-link text-lg hover:text-blue-200 transition duration-300">About</a></li>
-                </ul>
-            </nav>
-        </div>
+<body>
+    <header>
+        <h1>Welcome to LearnFast</h1>
+        <p>Unlock Your Potential, Learn at Your Own Pace</p>
     </header>
-
-    <main class="py-10">
-        <!-- Home Section Content -->
-        <section class="container mx-auto px-4 bg-white p-8 rounded-lg shadow-lg">
-            <h2 class="text-4xl font-extrabold text-blue-700 mb-6 text-center">Unlock Your Potential with LearnFast!</h2>
-            <p class="text-xl text-gray-700 mb-8 leading-relaxed text-center">
-                Your premier platform for acquiring new skills and advancing your career. Dive into a world of knowledge with our expert-led courses.
-            </p>
-            <div class="flex justify-center">
-                <a href="course.html" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg transition duration-300" onclick="gtag('event', 'explore_courses_click', { 'event_category': 'navigation', 'event_label': 'Home to Courses' });">
-                    Explore Our Courses
-                </a>
-            </div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="course.html">Courses</a>
+        <a href="register.html">Register</a>
+        <a href="about.html">About Us</a>
+    </nav>
+    <div class="container">
+        <section class="hero">
+            <h2>Transform Your Future with LearnFast!</h2>
+            <p>LearnFast offers a wide range of engaging and practical courses designed to help you master new skills and advance your career. Whether you're looking to upskill, reskill, or simply explore new interests, we have something for everyone.</p>
+            <p><a href="course.html" style="background: #007bff; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Explore Our Courses</a></p>
         </section>
-
-        <!-- Why Learn With Us Section -->
-        <section class="container mx-auto px-4 bg-white p-8 rounded-lg shadow-lg mt-8">
-            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center">Why Learn With Us?</h2>
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Expert-Led Courses</h3>
-                    <p class="text-gray-700">Learn from industry experts with real-world experience and a passion for teaching.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Flexible Learning</h3>
-                    <p class="text-gray-700">Access your courses anytime, anywhere, at your own pace, to fit your busy schedule.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Hands-on Projects</h3>
-                    <p class="text-gray-700">Apply your knowledge with practical exercises and projects that build your portfolio.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Community Support</h3>
-                    <p class="text-gray-700">Join a vibrant community of learners to collaborate, discuss, and grow together.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold text-blue-600 mb-2">Affordable Pricing</h3>
-                    <p class="text-gray-700">High-quality education made accessible with transparent and affordable pricing options.</p>
-                </div>
-            </div>
+        <section>
+            <h2>Why Choose LearnFast?</h2>
+            <ul>
+                <li>Expert-led courses</li>
+                <li>Flexible learning schedule</li>
+                <li>Practical, hands-on projects</li>
+                <li>Community support</li>
+                <li>Affordable pricing</li>
+            </ul>
         </section>
-    </main>
-
-    <footer class="bg-gray-800 text-white p-6 text-center shadow-inner mt-10">
-        <div class="container mx-auto">
-            <p>&copy; 2025 LearnFast. All rights reserved.</p>
-        </div>
+    </div>
+    <footer>
+        <p>&copy; 2025 LearnFast. All rights reserved.</p>
     </footer>
 </body>
 </html>
-
