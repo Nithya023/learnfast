@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5CDCEQRF0"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z5CDCEQRF0"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -13,21 +12,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Courses - LearnFast</title>
-    <style>
-        body { font-family: sans-serif; line-height: 1.6; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        header { background: #333; color: #fff; padding: 1rem 0; text-align: center; }
-        nav { display: flex; justify-content: center; background: #555; padding: 0.5rem 0; }
-        nav a { color: #fff; padding: 0.5rem 1rem; text-decoration: none; }
-        nav a:hover { background: #777; }
-        .container { width: 80%; margin: auto; overflow: hidden; padding: 20px 0; }
-        .course-card { background: #fff; padding: 20px; margin-bottom: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        footer { text-align: center; padding: 20px; background: #333; color: #fff; }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>Our Courses</h1>
-        <p>Find the perfect course for you!</p>
+        <h1>Our Diverse Course Catalog</h1>
+        <p>Explore our wide range of programs designed for your growth!</p>
     </header>
     <nav>
         <a href="index.html">Home</a>
@@ -36,26 +26,42 @@
         <a href="about.html">About Us</a>
     </nav>
     <div class="container">
-        <div class="course-card">
-            <h2>Web Development Fundamentals</h2>
-            <p>Learn the basics of HTML, CSS, and JavaScript to build your first websites. This course is perfect for beginners.</p>
-            <p><strong>Duration:</strong> 8 Weeks</p>
-            <p><strong>Price:</strong> $299</p>
-            <p><a href="register.html" style="background: #28a745; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 5px;">Enroll Now</a></p>
-        </div>
-        <div class="course-card">
-            <h2>Python for Data Science</h2>
-            <p>Master Python programming and its applications in data analysis, visualization, and machine learning.</p>
-            <p><strong>Duration:</strong> 12 Weeks</p>
-            <p><strong>Price:</strong> $449</p>
-            <p><a href="register.html" style="background: #28a745; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 5px;">Enroll Now</a></p>
-        </div>
-        <div class="course-card">
-            <h2>Digital Marketing Essentials</h2>
-            <p>Understand the core concepts of digital marketing, including SEO, social media, and content strategy.</p>
-            <p><strong>Duration:</strong> 6 Weeks</p>
-            <p><strong>Price:</strong> $199</p>
-            <p><a href="register.html" style="background: #28a745; color: #fff; padding: 8px 15px; text-decoration: none; border-radius: 5px;">Enroll Now</a></p>
+        <div class="course-grid">
+            <div class="course-card">
+                <h2>Web Development Fundamentals</h2>
+                <p>Dive into the essentials of **HTML, CSS, and JavaScript** to build responsive and engaging websites. Perfect for aspiring web creators!</p>
+                <p class="course-meta"><strong>Duration:</strong> 8 Weeks</p>
+                <p class="course-meta"><strong>Price:</strong> $299</p>
+                <p><a href="register.html" class="button button-small">Enroll Now</a></p>
+            </div>
+            <div class="course-card">
+                <h2>Python for Data Science</h2>
+                <p>Unlock the power of **Python** for data analysis, visualization, and machine learning. Transform raw data into valuable insights.</p>
+                <p class="course-meta"><strong>Duration:</strong> 12 Weeks</p>
+                <p class="course-meta"><strong>Price:</strong> $449</p>
+                <p><a href="register.html" class="button button-small">Enroll Now</a></p>
+            </div>
+            <div class="course-card">
+                <h2>Digital Marketing Essentials</h2>
+                <p>Master the core strategies of **digital marketing**, including SEO, social media, content creation, and analytics to boost online presence.</p>
+                <p class="course-meta"><strong>Duration:</strong> 6 Weeks</p>
+                <p class="course-meta"><strong>Price:</strong> $199</p>
+                <p><a href="register.html" class="button button-small">Enroll Now</a></p>
+            </div>
+            <div class="course-card">
+                <h2>Graphic Design with Adobe Suite</h2>
+                <p>Learn to create stunning visuals using **Photoshop, Illustrator, and InDesign**. Develop your creative skills for branding, web, and print.</p>
+                <p class="course-meta"><strong>Duration:</strong> 10 Weeks</p>
+                <p class="course-meta"><strong>Price:</strong> $379</p>
+                <p><a href="register.html" class="button button-small">Enroll Now</a></p>
+            </div>
+            <div class="course-card">
+                <h2>Introduction to Cybersecurity</h2>
+                <p>Understand fundamental **cybersecurity principles**, threat detection, and protective measures to safeguard digital information and systems.</p>
+                <p class="course-meta"><strong>Duration:</strong> 9 Weeks</p>
+                <p class="course-meta"><strong>Price:</strong> $329</p>
+                <p><a href="register.html" class="button button-small">Enroll Now</a></p>
+            </div>
         </div>
     </div>
     <footer>
